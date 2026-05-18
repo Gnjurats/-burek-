@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DollarSign, Home, Coins, Fuel, Shield, Activity, Building2, Calculator, AlertTriangle, Download, Loader2, Play } from 'lucide-react';
+import { DollarSign, Home, Coins, Fuel, Shield, Activity, Building2, Calculator, AlertTriangle, Download, Loader2, Play, Bot } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import InfoTip from '../components/Tooltip';
 import GuidedTour from '../components/GuidedTour';
@@ -1284,6 +1284,43 @@ export default function CryptoComparator() {
           >
             <Play className="w-5 h-5" />
             Watch Asset Evolution
+          </Link>
+        </div>
+
+        <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-sm rounded-xl p-8 border border-cyan-500/30 text-center mb-8">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="bg-cyan-500/20 rounded-full p-3">
+              <Bot className="w-8 h-8 text-cyan-400" />
+            </div>
+            <h3 className="text-2xl font-bold">Educational Assistant</h3>
+          </div>
+          <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
+            Not sure what a Sharpe Ratio is? Confused by the efficient frontier? Ask our AI-powered
+            assistant to explain any financial concept in simple terms.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-cyan-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">💬</div>
+              <h4 className="font-bold text-cyan-400 mb-2">Ask Anything</h4>
+              <p className="text-sm text-gray-300">Financial concepts explained simply</p>
+            </div>
+            <div className="bg-blue-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">📚</div>
+              <h4 className="font-bold text-blue-400 mb-2">Learn by Doing</h4>
+              <p className="text-sm text-gray-300">Understand the data you see on the platform</p>
+            </div>
+            <div className="bg-indigo-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">🤖</div>
+              <h4 className="font-bold text-indigo-400 mb-2">AI-Powered</h4>
+              <p className="text-sm text-gray-300">Powered by Claude for accurate explanations</p>
+            </div>
+          </div>
+          <Link
+            href="/assistant"
+            className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+          >
+            <Bot className="w-5 h-5" />
+            Chat with Assistant
           </Link>
         </div>
 
