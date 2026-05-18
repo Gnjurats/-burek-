@@ -12,10 +12,10 @@ interface Message {
 const AGENT_URL = process.env.NEXT_PUBLIC_AGENT_URL || 'http://localhost:8000';
 
 const QUICK_QUESTIONS = [
-  "C'est quoi le Sharpe Ratio ?",
-  "Pourquoi Bitcoin est si volatile ?",
-  "Comment diversifier mon portfolio ?",
-  "Difference entre DCA et lump sum ?",
+  "What is the Sharpe Ratio?",
+  "Why is Bitcoin so volatile?",
+  "How to diversify my portfolio?",
+  "DCA vs lump sum investing?",
 ];
 
 export default function FloatingAssistant() {
