@@ -11,6 +11,13 @@ interface Message {
 
 const AGENT_URL = process.env.NEXT_PUBLIC_AGENT_URL || 'http://localhost:8000';
 
+const QUICK_QUESTIONS = [
+  "C'est quoi le Sharpe Ratio ?",
+  "Pourquoi Bitcoin est si volatile ?",
+  "Comment diversifier mon portfolio ?",
+  "Difference entre DCA et lump sum ?",
+];
+
 export default function FloatingAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -246,9 +253,26 @@ export default function FloatingAssistant() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input */}
-        <div className="border-t border-slate-700 bg-slate-800/80 p-3 md:rounded-b-2xl flex-shrink-0">
-          <form onSubmit={handleSubmit} className="flex gap-2">
+        {/* Quick Questions + Input */}
+        <div className="border-t border-slate-700 bg-slate-800/80 md:rounded-b-2xl flex-shrink-0">
+          {messages.length <= 1 && (
+            <div className="px-3 pt-3 pb-1">
+              <p className="text-[10px] text-gray-400 mb-1.5 font-medium uppercase tracking-wide">Suggestions</p>
+              <div className="flex flex-wrap gap-1.5">
+                {QUICK_QUESTIONS.map((question, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setInput(question)}
+                    type="button"
+                    className="text-xs px-2.5 py-1.5 bg-slate-700 text-blue-300 rounded-full hover:bg-slate-600 transition-colors border border-slate-600"
+                  >
+                    {question}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className="p-3 flex gap-2">
             <input
               ref={inputRef}
               type="text"
@@ -270,7 +294,7 @@ export default function FloatingAssistant() {
               )}
             </button>
           </form>
-          <p className="text-[10px] text-gray-500 mt-1.5 text-center">
+          <p className="text-[10px] text-gray-500 pb-2 text-center">
             Educational only, not financial advice.
           </p>
         </div>
