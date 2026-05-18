@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import FloatingAssistantWrapper from '../components/FloatingAssistantWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,7 +36,10 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon_io/site.webmanifest" />
         <meta name="theme-color" content="#1e293b" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <FloatingAssistantWrapper />
+      </body>
     </html>
   );
 }
