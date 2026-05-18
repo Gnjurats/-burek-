@@ -45,7 +45,13 @@ const steps: Step[] = [
   {
     target: '#tour-explore',
     title: 'Explore More Tools',
-    content: 'Try the DCA Calculator to simulate monthly investing, or the Risk Analysis dashboard for Sharpe ratios and drawdowns. Look for the info icons for explanations of financial terms.',
+    content: 'Try the DCA Calculator to simulate monthly investing, the Risk Analysis dashboard for Sharpe ratios, correlation matrix, and scatter plots, or the Portfolio Optimizer to find your optimal asset allocation on the efficient frontier.',
+  },
+  {
+    target: 'body',
+    placement: 'center',
+    title: 'AI Assistant Available!',
+    content: "You're all set! If you ever have questions about financial concepts, risk metrics, or how to use the platform, our AI assistant is available on every page — look for the blue chat button in the bottom-right corner. Happy investing!",
   },
 ];
 
