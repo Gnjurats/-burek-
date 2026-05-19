@@ -53,7 +53,7 @@ export default function CryptoComparator() {
   const [selectedPeriod, setSelectedPeriod] = useState<'1y' | '5y' | '10y'>('5y');
   const [initialInvestment, setInitialInvestment] = useState<number>(10000);
   const [selectedInvestments, setSelectedInvestments] = useState<string[]>(['bitcoin', 'ethereum', 'sp500', 'gold', 'cardano', 'chainlink', 'ftse100', 'qqq']);
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'crypto' | 'traditional' | 'commodities'>('all');
+
   const [runTour, setRunTour] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
@@ -457,7 +457,7 @@ export default function CryptoComparator() {
     </div>
   </div>
 </div>
-        <div id="tour-controls" className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div id="tour-controls" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div id="tour-investment" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <label className="block text-sm font-medium text-gray-300 mb-3">
               <InfoTip text="The starting amount you would have invested. All returns are calculated based on this initial sum.">Initial Investment Amount</InfoTip>
@@ -492,21 +492,6 @@ export default function CryptoComparator() {
                 </button>
               ))}
             </div>
-          </div>
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <label className="block text-sm font-medium text-gray-300 mb-3">
-              Asset Category
-            </label>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value as 'all' | 'crypto' | 'traditional' | 'commodities')}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="all">All Assets</option>
-              <option value="crypto">Cryptocurrencies</option>
-              <option value="traditional">Stocks & Real Estate</option>
-              <option value="commodities">Commodities</option>
-            </select>
           </div>
         </div>
         <div id="tour-assets" className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-8">
