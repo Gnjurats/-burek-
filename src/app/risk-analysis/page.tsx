@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowLeft, TrendingUp, Shield, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Shield, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
 import InfoTip from '../../components/Tooltip';
 import { calculateAdvancedMetrics, type AdvancedMetrics } from '../../lib/advancedMetrics';
 
@@ -384,11 +384,7 @@ export default function RiskAnalysis() {
           <RiskReturnScatter />
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/comparison" className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-colors font-medium">
-            <TrendingUp className="w-5 h-5" />
-            View Performance Comparison
-          </Link>
+        <div className="mt-8 flex items-center justify-center">
           <Link href="/" className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white rounded-xl transition-colors font-medium">
             <ArrowLeft className="w-5 h-5" />
             Back to Home
