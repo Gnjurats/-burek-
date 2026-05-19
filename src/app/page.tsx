@@ -1329,12 +1329,12 @@ export default function CryptoComparator() {
           </button>
         </div>
 
-        <div className="text-center text-xs text-gray-500 pt-6 border-t border-white/10">
-          <p>
-            COM-480 Data Visualization — Milestone 2 prototype. Data normalized
-            to base 100 at each asset&apos;s launch year. Additional features
-            (advanced risk metrics, correlations, scatter plots) are coming in
-            the final version.
+        <div className="text-center pt-6 border-t border-white/10 space-y-2">
+          <p className="text-slate-300 font-medium text-sm">
+            COM-480 Data Visualization &mdash; EPFL Spring 2026
+          </p>
+          <p className="text-xs text-slate-400">
+            Investment Comparator by Nicholas Brandst&auml;tter, Marko Djuric &amp; Toufan Kashaev
           </p>
         </div>
       </div>

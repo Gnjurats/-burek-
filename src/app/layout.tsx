@@ -6,8 +6,8 @@ import FloatingAssistantWrapper from '../components/FloatingAssistantWrapper';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Investment Comparator - Milestone 2 Prototype',
-  description: 'Interactive comparator of cryptocurrencies and traditional assets (2014-2024). Milestone 2 prototype for COM-480 Data Visualization.',
+  title: 'Investment Comparator | COM-480 Data Visualization',
+  description: 'Interactive comparator of 21 assets across crypto, stocks, and commodities using 11 years of historical data (2014-2024).',
   keywords: 'crypto, bitcoin, ethereum, investment, comparison, S&P 500, gold, real estate, data visualization',
   authors: [{ name: 'COM-480 Group Burek' }],
   icons: {
