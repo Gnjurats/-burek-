@@ -2,18 +2,13 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { CATEGORY_COLORS } from '../lib/categoryColors';
 
 interface CorrelationData {
   assets: string[];
   categories: Record<string, string>;
   matrix: number[][];
 }
-
-const CATEGORY_COLORS: Record<string, string> = {
-  crypto: '#f59e0b',
-  stocks: '#3b82f6',
-  commodities: '#10b981',
-};
 
 const CATEGORY_LABELS: Record<string, string> = {
   crypto: 'Crypto',

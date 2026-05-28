@@ -6,6 +6,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, ReferenceLine, Cell
 } from 'recharts';
+import { CATEGORY_COLORS } from '../lib/categoryColors';
 
 interface CpiEntry {
   date: string; // "2014-01"
@@ -64,12 +65,6 @@ const PERIOD_CONFIG: Record<Period, { startYear: number; endYear: number; label:
   '10Y': { startYear: 2014, endYear: 2024, label: '10 Years (2014–2024)' },
   '5Y': { startYear: 2019, endYear: 2024, label: '5 Years (2019–2024)' },
   '1Y': { startYear: 2023, endYear: 2024, label: '1 Year (2023–2024)' },
-};
-
-const CATEGORY_COLORS: Record<string, string> = {
-  crypto: '#f59e0b',
-  stocks: '#3b82f6',
-  commodities: '#10b981',
 };
 
 const PERIOD_TO_UPPER: Record<string, Period> = { '1y': '1Y', '5y': '5Y', '10y': '10Y' };

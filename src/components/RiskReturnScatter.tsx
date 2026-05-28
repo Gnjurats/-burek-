@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { CATEGORY_COLORS } from '../lib/categoryColors';
 
 interface AssetData {
   avgReturn: number;
@@ -24,12 +25,6 @@ const CATEGORIES: Record<string, 'crypto' | 'stocks' | 'commodities'> = {
   FTSE100: 'stocks', Nikkei225: 'stocks', DAX: 'stocks', US_Real_Estate: 'stocks',
   Gold: 'commodities', Silver: 'commodities', WTI_Crude: 'commodities',
   Copper: 'commodities', Natural_Gas: 'commodities',
-};
-
-const CAT_COLORS: Record<string, string> = {
-  crypto: '#3b82f6',
-  stocks: '#10b981',
-  commodities: '#f59e0b',
 };
 
 const CAT_LABELS: Record<string, string> = {
@@ -192,9 +187,9 @@ export default function RiskReturnScatter() {
       hullsGroup.append('path')
         .attr('class', `hull hull-${cat}`)
         .attr('d', `M${expanded.map(p => p.join(',')).join('L')}Z`)
-        .attr('fill', CAT_COLORS[cat])
+        .attr('fill', CATEGORY_COLORS[cat])
         .attr('fill-opacity', filters[cat] ? 0.06 : 0.01)
-        .attr('stroke', CAT_COLORS[cat])
+        .attr('stroke', CATEGORY_COLORS[cat])
         .attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '6,4')
         .attr('stroke-opacity', filters[cat] ? 0.3 : 0.05)
@@ -205,7 +200,7 @@ export default function RiskReturnScatter() {
         .attr('class', `hull-label hull-label-${cat}`)
         .attr('x', centroid[0]).attr('y', centroid[1])
         .attr('text-anchor', 'middle')
-        .attr('fill', CAT_COLORS[cat])
+        .attr('fill', CATEGORY_COLORS[cat])
         .attr('font-size', '12px')
         .attr('font-weight', 'bold')
         .attr('opacity', filters[cat] ? 0.35 : 0.05)
@@ -233,7 +228,7 @@ export default function RiskReturnScatter() {
     }
 
     function showTooltip(event: MouseEvent, d: Point) {
-      const color = CAT_COLORS[d.category];
+      const color = CATEGORY_COLORS[d.category];
       tooltip
         .style('opacity', '1')
         .html(`
@@ -267,9 +262,9 @@ export default function RiskReturnScatter() {
       .attr('cx', d => xScale(d.volatility))
       .attr('cy', d => yScale(d.avgReturn))
       .attr('r', d => filters[d.category] ? radiusScale(d.sharpeRatio) : 3)
-      .attr('fill', d => CAT_COLORS[d.category])
+      .attr('fill', d => CATEGORY_COLORS[d.category])
       .attr('fill-opacity', d => filters[d.category] ? 0.8 : 0.1)
-      .attr('stroke', d => CAT_COLORS[d.category])
+      .attr('stroke', d => CATEGORY_COLORS[d.category])
       .attr('stroke-width', 1.5)
       .attr('stroke-opacity', d => filters[d.category] ? 0.5 : 0.1)
       .style('cursor', 'pointer')
@@ -455,7 +450,7 @@ export default function RiskReturnScatter() {
           >
             <span
               className="w-2.5 h-2.5 rounded-full"
-              style={{ backgroundColor: filters[key as keyof typeof filters] ? CAT_COLORS[key] : '#475569' }}
+              style={{ backgroundColor: filters[key as keyof typeof filters] ? CATEGORY_COLORS[key] : '#475569' }}
             />
             {label}
           </button>

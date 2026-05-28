@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { CATEGORY_COLORS } from '../lib/categoryColors';
 
 interface TimelineEntry {
   year: number;
@@ -14,12 +15,6 @@ interface AssetData {
   category: string;
   timeline: TimelineEntry[];
 }
-
-const CATEGORY_COLORS: Record<string, string> = {
-  crypto: '#f59e0b',
-  stocks: '#3b82f6',
-  commodities: '#10b981',
-};
 
 const CATEGORY_LABELS: Record<string, string> = {
   crypto: 'Crypto',
@@ -234,7 +229,7 @@ export default function VolatilityHeatmap() {
       <div className="flex items-center justify-center gap-2 mt-4">
         <span className="text-xs text-gray-500">Low</span>
         <div className="w-48 h-3 rounded-full" style={{
-          background: 'linear-gradient(to right, #10b981, #eab308 25%, #f97316 50%, #ef4444)'
+          background: 'linear-gradient(to right, #10b981, #eab308 33%, #f97316 66%, #ef4444)'
         }} />
         <span className="text-xs text-gray-500">High</span>
       </div>
