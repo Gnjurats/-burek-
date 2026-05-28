@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import FloatingAssistantWrapper from '../components/FloatingAssistantWrapper';
+import Providers from '../components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,8 +39,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       </head>
       <body className={inter.className}>
-        {children}
-        <FloatingAssistantWrapper />
+        <Providers>
+          {children}
+          <FloatingAssistantWrapper />
+        </Providers>
       </body>
     </html>
   );

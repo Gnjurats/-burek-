@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { useComparator } from '../context/ComparatorContext';
 import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, ReferenceLine, Cell
@@ -71,13 +72,17 @@ const CATEGORY_COLORS: Record<string, string> = {
   commodities: '#10b981',
 };
 
+const PERIOD_TO_UPPER: Record<string, Period> = { '1y': '1Y', '5y': '5Y', '10y': '10Y' };
+const PERIOD_TO_LOWER: Record<Period, string> = { '1Y': '1y', '5Y': '5y', '10Y': '10y' };
+
 export default function InflationHedgeDashboard() {
+  const { selectedAssets, setSelectedAssets, analysisPeriod, setAnalysisPeriod } = useComparator();
   const [cpiData, setCpiData] = useState<CpiEntry[]>([]);
-  const [period, setPeriod] = useState<Period>('10Y');
-  const [selectedAssets, setSelectedAssets] = useState<string[]>([
-    'bitcoin', 'sp500', 'gold', 'nasdaq', 'realEstate', 'silver',
-  ]);
   const [growthAsset, setGrowthAsset] = useState('sp500');
+
+  // Map context period (lowercase) to local Period (uppercase)
+  const period: Period = PERIOD_TO_UPPER[analysisPeriod] || '10Y';
+  const setPeriod = (p: Period) => setAnalysisPeriod(PERIOD_TO_LOWER[p] as '1y' | '5y' | '10y');
 
   useEffect(() => {
     fetch('/data/cpi_monthly.json')

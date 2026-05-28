@@ -10,6 +10,7 @@ import InfoTip from '../components/Tooltip';
 import GuidedTour from '../components/GuidedTour';
 import HelpModal from '../components/HelpModal';
 import { generatePDF } from '../lib/pdfExport';
+import { useComparator } from '../context/ComparatorContext';
 
 const HistoricalEvents = dynamic(() => import('../components/HistoricalEvents'), { ssr: false });
 
@@ -50,9 +51,7 @@ interface Investment {
 }
 
 export default function CryptoComparator() {
-  const [selectedPeriod, setSelectedPeriod] = useState<'1y' | '5y' | '10y'>('5y');
-  const [initialInvestment, setInitialInvestment] = useState<number>(10000);
-  const [selectedInvestments, setSelectedInvestments] = useState<string[]>(['bitcoin', 'ethereum', 'sp500', 'gold', 'cardano', 'chainlink', 'ftse100', 'qqq']);
+  const { selectedAssets: selectedInvestments, setSelectedAssets: setSelectedInvestments, investmentAmount: initialInvestment, setInvestmentAmount: setInitialInvestment, analysisPeriod: selectedPeriod, setAnalysisPeriod: setSelectedPeriod } = useComparator();
 
   const [runTour, setRunTour] = useState(false);
   const [showHelp, setShowHelp] = useState(false);

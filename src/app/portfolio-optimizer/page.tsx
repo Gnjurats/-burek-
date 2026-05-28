@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { ArrowLeft, Zap } from 'lucide-react';
 import InfoTip from '../../components/Tooltip';
 import { calculateEfficientFrontier, getAssetStats, type AssetInput, type PortfolioResult } from '../../lib/portfolioOptimizer';
+import { useComparator } from '../../context/ComparatorContext';
 
 const EfficientFrontier = dynamic(() => import('../../components/EfficientFrontier'), { ssr: false });
 
@@ -75,6 +76,16 @@ const MONTHLY_RETURNS: Record<string, Record<string, number | null>> = {
 const ALL_ASSETS = ['Bitcoin', 'Ethereum', 'Solana', 'S&P 500', 'NASDAQ', 'Russell 2000', 'Real Estate', 'Gold', 'Silver', 'WTI Oil'];
 const RISK_FREE_RATE = 0.0437;
 
+// Map between context symbols and portfolio optimizer display names
+const SYMBOL_TO_NAME: Record<string, string> = {
+  bitcoin: 'Bitcoin', ethereum: 'Ethereum', solana: 'Solana',
+  sp500: 'S&P 500', nasdaq: 'NASDAQ', russell2000: 'Russell 2000',
+  realEstate: 'Real Estate', gold: 'Gold', silver: 'Silver', wtiOil: 'WTI Oil',
+};
+const NAME_TO_SYMBOL: Record<string, string> = Object.fromEntries(
+  Object.entries(SYMBOL_TO_NAME).map(([k, v]) => [v, k])
+);
+
 function getAssetReturns(assetName: string): number[] {
   const returns: number[] = [];
   Object.values(MONTHLY_RETURNS).forEach(month => {
@@ -87,12 +98,19 @@ function getAssetReturns(assetName: string): number[] {
 }
 
 export default function PortfolioOptimizer() {
-  const [selected, setSelected] = useState<string[]>(['Bitcoin', 'S&P 500', 'Gold', 'NASDAQ']);
+  const { selectedAssets, setSelectedAssets } = useComparator();
   const [selectedPortfolio, setSelectedPortfolio] = useState<PortfolioResult | null>(null);
 
+  // Derive local name-based selection from context symbols, filtered to assets this page supports
+  const selected = selectedAssets
+    .map(s => SYMBOL_TO_NAME[s])
+    .filter((n): n is string => n !== undefined && ALL_ASSETS.includes(n));
+
   const toggleAsset = (name: string) => {
-    setSelected(prev =>
-      prev.includes(name) ? prev.filter(a => a !== name) : [...prev, name]
+    const symbol = NAME_TO_SYMBOL[name];
+    if (!symbol) return;
+    setSelectedAssets(prev =>
+      prev.includes(symbol) ? prev.filter(a => a !== symbol) : [...prev, symbol]
     );
     setSelectedPortfolio(null);
   };

@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { ArrowLeft, Shield, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
 import InfoTip from '../../components/Tooltip';
 import { calculateAdvancedMetrics, type AdvancedMetrics } from '../../lib/advancedMetrics';
+import { useComparator } from '../../context/ComparatorContext';
 
 const CorrelationMatrix = dynamic(() => import('../../components/CorrelationMatrix'), { ssr: false });
 const RiskReturnScatter = dynamic(() => import('../../components/RiskReturnScatter'), { ssr: false });
@@ -36,7 +37,7 @@ interface Investment {
 }
 
 export default function RiskAnalysis() {
-  const [selectedAssets, setSelectedAssets] = useState<string[]>(['bitcoin', 'ethereum', 'sp500', 'gold']);
+  const { selectedAssets, setSelectedAssets } = useComparator();
   const [expandedAsset, setExpandedAsset] = useState<string | null>(null);
 
   const monthlyReturnsData: Record<string, MonthlyReturns> = {
