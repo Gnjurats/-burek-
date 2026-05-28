@@ -151,7 +151,7 @@ export default function CryptoComparator() {
       name: 'Bitcoin',
       symbol: 'bitcoin',
       color: '#F7931A',
-      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin" width={32} height={32} />,
+      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/langfr-250px-Bitcoin.svg.png" alt="Bitcoin" width={32} height={32} />,
       currentReturn: 29637.4,
       volatility: 55,
       description: 'The first and most well-known cryptocurrency',
@@ -191,7 +191,7 @@ export default function CryptoComparator() {
       name: 'NASDAQ',
       symbol: 'nasdaq',
       color: '#00D4FF',
-      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/2880px-NASDAQ_Logo.svg.png" alt="Nasdaq" width={32} height={32} />,
+      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/langfr-250px-NASDAQ_Logo.svg.png" alt="Nasdaq" width={32} height={32} />,
       currentReturn: 393.8,
       volatility: 16,
       description: 'US technology stock index',
@@ -249,27 +249,27 @@ export default function CryptoComparator() {
     },
     {
   name: 'Cardano', symbol: 'cardano', color: '#3CC8C8',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Cardano_Logo.jpg" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Cardano_Logo.jpg" alt="Cardano" width={32} height={32} />,
   currentReturn: 633, volatility: 75, description: 'Proof-of-stake blockchain platform', category: 'crypto'
 },
 {
   name: 'Polygon', symbol: 'polygon', color: '#8247E5',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Polygon_Icon.svg/1280px-Polygon_Icon.svg.png" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Polygon_Icon.svg/1280px-Polygon_Icon.svg.png" alt="Polygon" width={32} height={32} />,
   currentReturn: 1900, volatility: 80, description: 'Ethereum scaling and infrastructure', category: 'crypto'
 },
 {
   name: 'Chainlink', symbol: 'chainlink', color: '#375BD2',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chainlink_Logo_Blue.svg/2880px-Chainlink_Logo_Blue.svg.png" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chainlink_Logo_Blue.svg/langfr-250px-Chainlink_Logo_Blue.svg.png" alt="Chainlink" width={32} height={32} />,
   currentReturn: 565, volatility: 65, description: 'Decentralized oracle network', category: 'crypto'
 },
 {
   name: 'Avalanche', symbol: 'avalanche', color: '#E84142',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/fr/thumb/7/78/Avalanche_AVAX_Logo.png/1280px-Avalanche_AVAX_Logo.png" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/fr/thumb/7/78/Avalanche_AVAX_Logo.png/1280px-Avalanche_AVAX_Logo.png" alt="Avalanche" width={32} height={32} />,
   currentReturn: 402, volatility: 70, description: 'High-performance blockchain platform', category: 'crypto'
 },
 {
   name: 'FTSE 100', symbol: 'ftse100', color: '#C41E3A',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/FTSE_100_logo.svg/1024px-FTSE_100_logo.svg.png" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/FTSE_Logo.svg/langfr-250px-FTSE_Logo.svg.png" alt="FTSE 100" width={32} height={32} />,
   currentReturn: 14, volatility: 14, description: 'UK stock market index', category: 'traditional'
 },
 {
@@ -279,7 +279,7 @@ export default function CryptoComparator() {
 },
 {
   name: 'DAX', symbol: 'dax', color: '#FFCC00',
-  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/DAX-logo.svg/2880px-DAX-logo.svg.png" alt="Nasdaq" width={32} height={32} />,
+  icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/DAX-logo.svg/langfr-250px-DAX-logo.svg.png" alt="DAX" width={32} height={32} />,
   currentReturn: 47, volatility: 18, description: 'German stock market index', category: 'traditional'
 },
 {
@@ -509,7 +509,7 @@ export default function CryptoComparator() {
                 }`}
               >
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin" width={32} height={32} />
+                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/langfr-250px-Bitcoin.svg.png" alt="Bitcoin" width={32} height={32} />
                 </div>
                 <div className="text-center">
                   <div className="font-bold text-white text-lg">Bitcoin</div>
@@ -655,7 +655,7 @@ export default function CryptoComparator() {
                 }`}
               >
                 <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
-                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/2880px-NASDAQ_Logo.svg.png" alt="NASDAQ" width={32} height={32} />
+                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/langfr-250px-NASDAQ_Logo.svg.png" alt="NASDAQ" width={32} height={32} />
                 </div>
                 <div className="text-center">
                   <div className="font-bold text-white text-lg">NASDAQ</div>
@@ -689,7 +689,7 @@ export default function CryptoComparator() {
       }`}
     >
       <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
-                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/FTSE_Logo.svg/1200px-FTSE_Logo.svg.png" alt="NASDAQ" width={32} height={32} />
+                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/FTSE_Logo.svg/langfr-250px-FTSE_Logo.svg.png" alt="FTSE 100" width={32} height={32} />
                 </div>
       <div className="text-center">
         <div className="font-bold text-white text-lg">FTSE 100</div>
@@ -725,7 +725,7 @@ export default function CryptoComparator() {
       }`}
     >
       <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/DAX-logo.svg/2880px-DAX-logo.svg.png" alt="NASDAQ" width={32} height={32} />
+                  <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/DAX-logo.svg/langfr-250px-DAX-logo.svg.png" alt="DAX" width={32} height={32} />
                 </div>
       <div className="text-center">
         <div className="font-bold text-white text-lg">DAX</div>

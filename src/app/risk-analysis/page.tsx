@@ -108,7 +108,7 @@ export default function RiskAnalysis() {
       name: 'Bitcoin',
       symbol: 'bitcoin',
       color: '#F7931A',
-      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin" width={24} height={24} />,
+      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/langfr-250px-Bitcoin.svg.png" alt="Bitcoin" width={24} height={24} />,
       category: 'crypto'
     },
     {
@@ -136,7 +136,7 @@ export default function RiskAnalysis() {
       name: 'NASDAQ',
       symbol: 'nasdaq',
       color: '#00D4FF',
-      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/2880px-NASDAQ_Logo.svg.png" alt="Nasdaq" width={24} height={24} />,
+      icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/NASDAQ_Logo.svg/langfr-250px-NASDAQ_Logo.svg.png" alt="Nasdaq" width={24} height={24} />,
       category: 'traditional'
     },
     {
