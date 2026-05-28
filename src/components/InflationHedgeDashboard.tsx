@@ -299,7 +299,7 @@ export default function InflationHedgeDashboard() {
               <Legend formatter={(value: string) => value === 'nominal' ? 'Nominal Return' : 'Real Return'} />
               <ReferenceLine x={0} stroke="rgba(255,255,255,0.2)" />
               <Bar dataKey="nominal" fill="#60a5fa" radius={[0, 4, 4, 0]} barSize={16} />
-              <Bar dataKey="real" radius={[0, 4, 4, 0]} barSize={16}>
+              <Bar dataKey="real" fill="#34d399" radius={[0, 4, 4, 0]} barSize={16}>
                 {barChartData.map((entry, idx) => (
                   <Cell key={idx} fill={entry.real >= 0 ? '#34d399' : '#f87171'} />
                 ))}

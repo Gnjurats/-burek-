@@ -234,7 +234,7 @@ export default function VolatilityHeatmap() {
       <div className="flex items-center justify-center gap-2 mt-4">
         <span className="text-xs text-gray-500">Low</span>
         <div className="w-48 h-3 rounded-full" style={{
-          background: 'linear-gradient(to right, #10b981, #eab308 33%, #f97316 66%, #ef4444)'
+          background: 'linear-gradient(to right, #10b981, #eab308 25%, #f97316 50%, #ef4444)'
         }} />
         <span className="text-xs text-gray-500">High</span>
       </div>
