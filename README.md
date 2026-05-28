@@ -95,13 +95,26 @@ matrix, event annotations, PDF export) are held for the final version.
 
 **Pages**
 
-- `/` — Main comparator: 20 assets across 3 categories, 1y / 5y / 10y
-  period selector, configurable investment, multi-asset line chart,
-  per-asset result cards, and comparison table.
+- `/` — Main comparator: 21 assets across 3 categories, 1Y / 5Y / 10Y
+  period selector, configurable investment amount, multi-asset performance
+  line chart with historical event annotations, per-asset result cards,
+  comparison table, and guided tour for new users.
 - `/dca-calculator` — Dollar-Cost Averaging simulator: pick assets,
   monthly contribution, and horizon to see how DCA would have performed.
-- `/risk-analysis` — Risk dashboard with Volatility, Sharpe Ratio, and
-  Max Drawdown. Advanced metrics planned for final version.
+- `/risk-analysis` — Risk dashboard with 15 metrics (Volatility, Sharpe,
+  Sortino, Max Drawdown, Beta, Alpha, Calmar, VaR, CVaR, etc.),
+  correlation matrix heatmap, volatility-over-time heatmap, and
+  risk-return scatter plot.
+- `/portfolio-optimizer` — Markowitz efficient frontier with Max Sharpe
+  and Min Variance portfolios, plus weight allocation bars.
+- `/asset-evolution` — Animated Hans Rosling-style bubble chart showing
+  how 21 assets evolved from 2014 to 2024 (D3.js).
+- `/inflation-hedge` — Inflation-hedge analysis using real US CPI data
+  from FRED (series CPIAUCSL). Compares nominal vs real returns using the
+  Fisher equation, with a grouped bar chart, cumulative growth chart, and
+  inflation-hedge ranking table.
+- `/assistant` — Full-screen AI educational assistant (also available as a
+  floating widget on every page).
 
 ### Live Demo
 
@@ -110,11 +123,55 @@ matrix, event annotations, PDF export) are held for the final version.
 The fully functional prototype is deployed and accessible at [burek.vercel.app](https://burek.vercel.app).
 
 **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4,
-Recharts, lucide-react.
+Recharts, D3.js, lucide-react, react-joyride.
 
 ## Milestone 3 (29th May, 5pm)
 
 **80% of the final grade**
+
+### Final Visualizations
+
+The project now includes 7 custom interactive visualizations across 7 pages:
+
+1. **Performance Evolution Chart** (`/`) — Normalized line chart (base 100) comparing up to 21 assets over 1Y/5Y/10Y, with toggleable historical event markers (COVID crash, crypto winter, etc.).
+2. **Asset Evolution Bubble Chart** (`/asset-evolution`) — Animated Hans Rosling-style D3.js bubble chart. Play/pause/scrub through 2014–2024; bubble position encodes risk vs return, size encodes magnitude.
+3. **Volatility Heatmap** (`/risk-analysis`) — D3.js heatmap showing annualized volatility per asset per year (2014–2024). Sequential green→yellow→orange→red color scale. Grey cells for assets that didn't exist yet. *Fulfills Milestone 1 planned feature.*
+4. **Correlation Matrix** (`/risk-analysis`) — D3.js heatmap of pairwise asset correlations with diverging blue/red color scale and category filters.
+5. **Inflation-Hedge Dashboard** (`/inflation-hedge`) — Nominal vs real return bar chart, cumulative $10k growth chart (nominal vs inflation-adjusted), and ranked hedge table. Uses real US CPI data from FRED (series CPIAUCSL, Jan 2014–Dec 2024). Real returns computed via Fisher equation: `real_return = (1 + nominal) / (1 + inflation) - 1`. *Fulfills Milestone 1 planned feature.*
+6. **Efficient Frontier** (`/portfolio-optimizer`) — Markowitz Modern Portfolio Theory visualization with Max Sharpe and Min Variance optimal portfolios, plus weight allocation bars.
+7. **DCA Simulator** (`/dca-calculator`) — Dual-line chart showing portfolio value vs total invested for dollar-cost averaging strategies.
+
+### Additional Features
+
+- **AI Educational Assistant** — Claude-powered chatbot (FastAPI + SSE streaming, deployed on Railway) available as a floating widget on every page and as a full-screen interface at `/assistant`.
+- **Guided Tour** — 9-step react-joyride walkthrough for first-time visitors.
+- **Risk Metrics** — 15 institutional-grade metrics per asset (Sharpe, Sortino, Alpha, Beta, Max Drawdown, VaR, CVaR, Calmar, Treynor, Information Ratio, etc.).
+- **Risk-Return Scatter Plot** — Category-filtered scatter showing all assets by annualized return vs volatility.
+- **PDF Export** — Generate a PDF report of the comparison results.
+
+### Data Sources
+
+| Dataset | Source | Period | Usage |
+|---------|--------|--------|-------|
+| Crypto prices (BTC, ETH, SOL, ADA, etc.) | CoinMarketCap, CoinGecko via Kaggle | 2014–2024 | Performance, volatility, correlations |
+| Stock indices (S&P 500, NASDAQ, Russell 2000, etc.) | Yahoo Finance via Kaggle | 2014–2024 | Benchmark comparisons |
+| Commodities (Gold, Silver, WTI Oil, Copper, Natural Gas) | EIA, LBMA/COMEX via Kaggle | 2014–2024 | Commodity performance |
+| US Real Estate (Case-Shiller CSUSHPINSA) | FRED | 2014–2024 | Housing market comparison |
+| US CPI (CPIAUCSL) | FRED | Jan 2014–Dec 2024 | Inflation-adjusted real return calculations |
+| Correlation matrix | Pre-computed from daily returns | 2014–2024 | Asset correlation heatmap |
+| Annual evolution (per-year volatility) | Pre-computed from daily returns | 2014–2024 | Volatility heatmap |
+
+### Technical Stack
+
+- **Frontend:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4
+- **Charts:** Recharts (line, bar, scatter, area), D3.js (heatmaps, bubble chart)
+- **UI:** lucide-react icons, react-joyride guided tour
+- **AI Backend:** FastAPI + Anthropic Claude SDK, SSE streaming, deployed on Railway
+- **Deployment:** Vercel (frontend), Railway (AI agent)
+
+### Process Book
+
+Full process book: [process-book.html](milestones/milestone3/process-book.html) | [process-book.pdf](milestones/milestone3/process-book.pdf)
 
 
 ## Late policy
