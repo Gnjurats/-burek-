@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DollarSign, Home, Coins, Fuel, Shield, Activity, Building2, Calculator, AlertTriangle, Download, Loader2, Play, Bot } from 'lucide-react';
+import { DollarSign, Home, Coins, Fuel, Shield, Activity, Building2, Calculator, AlertTriangle, Download, Loader2, Play, Bot, TrendingDown } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import InfoTip from '../components/Tooltip';
 import GuidedTour from '../components/GuidedTour';
@@ -1197,6 +1197,43 @@ export default function CryptoComparator() {
     Analyze Investment Risk
   </Link>
 </div>
+
+        <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl p-8 border border-amber-500/30 text-center mb-8">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="bg-amber-500/20 rounded-full p-3">
+              <TrendingDown className="w-8 h-8 text-amber-400" />
+            </div>
+            <h3 className="text-2xl font-bold">Inflation-Hedge Analysis</h3>
+          </div>
+          <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
+            See which assets actually beat inflation using real US CPI data. Compare nominal returns
+            vs purchasing-power gains and find the true inflation hedges over the past decade.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-amber-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">📉</div>
+              <h4 className="font-bold text-amber-400 mb-2">Real vs Nominal</h4>
+              <p className="text-sm text-gray-300">See how inflation erodes your gains</p>
+            </div>
+            <div className="bg-orange-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">🛡️</div>
+              <h4 className="font-bold text-orange-400 mb-2">Hedge Ranking</h4>
+              <p className="text-sm text-gray-300">Which assets preserve purchasing power</p>
+            </div>
+            <div className="bg-yellow-500/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">📊</div>
+              <h4 className="font-bold text-yellow-400 mb-2">US CPI Data</h4>
+              <p className="text-sm text-gray-300">Real Federal Reserve inflation data</p>
+            </div>
+          </div>
+          <Link
+            href="/inflation-hedge"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+          >
+            <TrendingDown className="w-5 h-5" />
+            Analyze Inflation Hedges
+          </Link>
+        </div>
 
         <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur-sm rounded-xl p-8 border border-indigo-500/30 text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">

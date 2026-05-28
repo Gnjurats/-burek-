@@ -10,6 +10,7 @@ import { calculateAdvancedMetrics, type AdvancedMetrics } from '../../lib/advanc
 
 const CorrelationMatrix = dynamic(() => import('../../components/CorrelationMatrix'), { ssr: false });
 const RiskReturnScatter = dynamic(() => import('../../components/RiskReturnScatter'), { ssr: false });
+const VolatilityHeatmap = dynamic(() => import('../../components/VolatilityHeatmap'), { ssr: false });
 
 interface MonthlyReturns {
   bitcoin: number;
@@ -372,6 +373,12 @@ export default function RiskAnalysis() {
               </div>
             );
           })}
+        </div>
+
+        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-6">
+          <h3 className="text-lg font-bold mb-2"><InfoTip text="Shows how each asset's volatility (annualized standard deviation) changes year by year from 2014 to 2024. Darker red = more volatile. Grey cells = asset didn't exist yet.">Volatility Over Time</InfoTip></h3>
+          <p className="text-gray-400 text-sm mb-4">How each asset&apos;s annualized volatility evolved across years. Red cells indicate high price swings; green cells indicate stability.</p>
+          <VolatilityHeatmap />
         </div>
 
         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-6">
