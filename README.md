@@ -171,7 +171,7 @@ The project now includes 7 custom interactive visualizations across 7 pages:
 
 ### Process Book
 
-Full process book: [process-book.html](milestones/milestone3/process-book.html) | [process-book.pdf](milestones/milestone3/process-book.pdf)
+Full process book: [process-book.pdf](milestones/milestone3/process-book.pdf)
 
 
 ## Late policy
