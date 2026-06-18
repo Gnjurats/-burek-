@@ -969,14 +969,14 @@ export default function CryptoComparator() {
                 <div className="space-y-3">
                   <div>
                     <p className="text-sm text-gray-400">Final Value</p>
-                    <p className="text-2xl font-bold text-white">${finalValue.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-white">${finalValue.toLocaleString('en-US')}</p>
                   </div>
 
                   <div className="flex justify-between items-center">
                     <div>
                       <p className="text-sm text-gray-400">Profit</p>
                       <p className={`font-bold ${profit >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                        ${profit.toLocaleString()}
+                        ${profit.toLocaleString('en-US')}
                       </p>
                     </div>
                     <div className="text-right">
@@ -1049,7 +1049,7 @@ export default function CryptoComparator() {
                         {investment.volatility}%
                       </td>
                       <td className="text-right py-3 px-4 font-medium">
-                        ${finalValue.toLocaleString()}
+                        ${finalValue.toLocaleString('en-US')}
                       </td>
                       <td className="text-right py-3 px-4">
                         <span className={`px-2 py-1 rounded-full text-xs ${

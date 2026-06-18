@@ -90,7 +90,7 @@ export async function generatePDF(data: ExportData): Promise<void> {
   pdf.setTextColor(...COLORS.text);
   pdf.text(`Analysis Period: ${data.period}`, 40, y);
   y += 10;
-  pdf.text(`Initial Investment: $${data.investment.toLocaleString()}`, 40, y);
+  pdf.text(`Initial Investment: $${data.investment.toLocaleString('en-US')}`, 40, y);
   y += 10;
   pdf.text(`Generated: ${data.generatedDate}`, 40, y);
   y += 10;
@@ -160,11 +160,11 @@ export async function generatePDF(data: ExportData): Promise<void> {
 
     pdf.setTextColor(...COLORS.text);
     pdf.text(asset.name, colX[0], y);
-    pdf.text(`$${asset.finalValue.toLocaleString()}`, colX[1], y);
+    pdf.text(`$${asset.finalValue.toLocaleString('en-US')}`, colX[1], y);
 
     const profitColor = asset.profit >= 0 ? COLORS.green : COLORS.red;
     pdf.setTextColor(...profitColor);
-    pdf.text(`${asset.profit >= 0 ? '+' : ''}$${asset.profit.toLocaleString()}`, colX[2], y);
+    pdf.text(`${asset.profit >= 0 ? '+' : ''}$${asset.profit.toLocaleString('en-US')}`, colX[2], y);
     pdf.text(`${asset.returnPct >= 0 ? '+' : ''}${asset.returnPct.toFixed(1)}%`, colX[3], y);
 
     pdf.setTextColor(...COLORS.muted);

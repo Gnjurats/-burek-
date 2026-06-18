@@ -233,7 +233,7 @@ export default function InflationHedgeDashboard() {
         <div className="p-4 rounded-xl border border-white/10 bg-white/5">
           <p className="text-gray-400 text-sm font-medium">$10,000 Purchasing Power</p>
           <p className="text-2xl font-bold text-red-400 mt-1">
-            ${(10000 / (1 + cumulativeInflation / 100)).toLocaleString(undefined, { maximumFractionDigits: 0 })}
+            ${(10000 / (1 + cumulativeInflation / 100)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
           </p>
           <p className="text-gray-400 text-xs mt-1">in {startYear} dollars by {endYear}</p>
         </div>
@@ -338,7 +338,7 @@ export default function InflationHedgeDashboard() {
                     real: 'Real Value (inflation-adjusted)',
                     inflation: 'Inflation Baseline ($10k)',
                   };
-                  return [`$${Number(value).toLocaleString()}`, labels[String(name)] || String(name)];
+                  return [`$${Number(value).toLocaleString('en-US')}`, labels[String(name)] || String(name)];
                 }}
               />
               <Legend formatter={(v: string) => {

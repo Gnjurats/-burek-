@@ -442,7 +442,7 @@ export default function DCACalculator() {
               <DollarSign className="w-6 h-6 text-green-400" />
               <h3 className="font-bold text-green-400"><InfoTip text="The sum of all your monthly contributions over the selected period.">Total Invested</InfoTip></h3>
             </div>
-            <p className="text-2xl font-bold text-white">${dcaResult.totalInvested.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-white">${dcaResult.totalInvested.toLocaleString('en-US')}</p>
             <p className="text-sm text-gray-300">Over {dcaResult.monthlyData.length} months</p>
           </div>
 
@@ -451,7 +451,7 @@ export default function DCACalculator() {
               <TrendingUp className="w-6 h-6 text-blue-400" />
               <h3 className="font-bold text-blue-400"><InfoTip text="What all your accumulated units are worth at the current market price.">Portfolio Value</InfoTip></h3>
             </div>
-            <p className="text-2xl font-bold text-white">${dcaResult.finalValue.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-white">${dcaResult.finalValue.toLocaleString('en-US')}</p>
             <p className="text-sm text-gray-300">Current market value</p>
           </div>
 
@@ -467,7 +467,7 @@ export default function DCACalculator() {
               </h3>
             </div>
             <p className={`text-2xl font-bold ${dcaResult.totalReturn >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-              {dcaResult.totalReturn >= 0 ? '+' : ''}${dcaResult.totalReturn.toLocaleString()}
+              {dcaResult.totalReturn >= 0 ? '+' : ''}${dcaResult.totalReturn.toLocaleString('en-US')}
             </p>
             <p className="text-sm text-gray-300">
               {dcaResult.returnPercentage >= 0 ? '+' : ''}{dcaResult.returnPercentage.toFixed(1)}% return
@@ -479,7 +479,7 @@ export default function DCACalculator() {
               <Calculator className="w-6 h-6 text-purple-400" />
               <h3 className="font-bold text-purple-400"><InfoTip text="Your average purchase price per unit. DCA typically lowers this compared to buying all at once.">Average Cost</InfoTip></h3>
             </div>
-            <p className="text-2xl font-bold text-white">${dcaResult.averageCost.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-white">${dcaResult.averageCost.toLocaleString('en-US')}</p>
             <p className="text-sm text-gray-300">
               {dcaResult.sharesAcquired.toFixed(4)} {selectedInvestment?.name} units
             </p>
@@ -501,7 +501,7 @@ export default function DCACalculator() {
                     borderRadius: '8px'
                   }}
                   formatter={(value, name) => {
-                    const formatted = `$${Number(value).toLocaleString()}`;
+                    const formatted = `$${Number(value).toLocaleString('en-US')}`;
                     if (name === 'invested') return [formatted, 'Total Invested'];
                     if (name === 'value') return [formatted, 'Portfolio Value'];
                     return [formatted, name];
